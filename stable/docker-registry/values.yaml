@@ -116,6 +116,17 @@ securityContext:
   runAsUser: 1000
   fsGroup: 1000
 
+## Create or use ServiceAccount
+##
+serviceAccount:
+  # Specifies whether a ServiceAccount should be created
+  create: true
+  # The name of the ServiceAccount to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+  # Annotations for ServiceAccount
+  annotations: {}
+
 priorityClassName: ""
 
 podDisruptionBudget: {}

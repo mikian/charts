@@ -22,3 +22,14 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "docker-registry.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create -}}
+    {{ default (include "docker-registry.fullname" .) .Values.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.serviceAccount.name }}
+{{- end -}}
+{{- end -}}

@@ -32,6 +32,7 @@ spec:
 {{ toYaml $.Values.podAnnotations | indent 8 }}
 {{- end }}
     spec:
+      serviceAccount: {{ template "docker-registry.serviceAccountName" . }}
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
 {{ toYaml .Values.imagePullSecrets | indent 8 }}
